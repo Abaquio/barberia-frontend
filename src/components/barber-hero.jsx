@@ -79,7 +79,7 @@ const goBarberos = () => {
       {/* Imagen de fondo */}
       <div ref={imageWrapRef} className="absolute inset-0 z-0">
         <img
-          src="/modern-barber-shop-interior-with-vintage-chairs-an.png"
+          src={`${import.meta.env.BASE_URL}/modern-barber-shop-interior-with-vintage-chairs-an.png`}
           alt="Modern Barber Shop"
           className="w-full h-full object-cover opacity-60"
           loading="eager"

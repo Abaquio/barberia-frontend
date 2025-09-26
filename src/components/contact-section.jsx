@@ -175,7 +175,7 @@ export default function ContactSection() {
 
         <div ref={mapRef} className="relative h-96 bg-muted rounded-lg overflow-hidden">
           <img
-            src="/modern-barber-shop-location-map-with-golden-pin-ma.png"
+            src={`${import.meta.env.BASE_URL}/modern-barber-shop-location-map-with-golden-pin-ma.png`}
             alt="Ubicación Elite Barber Shop"
             className="w-full h-full object-cover"
           />

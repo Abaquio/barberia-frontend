@@ -4,6 +4,12 @@ import { useEffect, useRef, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
+// Helper para resolver rutas de imágenes con el base de Vite/GitHub Pages
+const img = (src) =>
+  typeof src === "string"
+    ? (src.startsWith("/") ? `${import.meta.env.BASE_URL}${src.slice(1)}` : src)
+    : src
+
 const barbers = [
   {
     id: 1,
@@ -165,7 +171,7 @@ export default function BarbersSection() {
                   }`}
                 >
                   <img
-                    src={barber.avatar || "/placeholder.svg?height=64&width=64"}
+                    src={img(barber.avatar) || `${import.meta.env.BASE_URL}placeholder.svg?height=64&width=64`}
                     alt={barber.name}
                     className="w-full h-full object-cover"
                   />
@@ -190,7 +196,7 @@ export default function BarbersSection() {
             >
               <div className="relative overflow-hidden">
                 <img
-                  src={service.image || "/placeholder.svg?height=200&width=300"}
+                  src={img(service.image) || `${import.meta.env.BASE_URL}placeholder.svg?height=200&width=300`}
                   alt={service.name}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                 />

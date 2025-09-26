@@ -74,7 +74,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div ref={imageRef} className="relative">
             <img
-              src="/experienced-barber-working-with-vintage-tools-and-.png"
+              src={`${import.meta.env.BASE_URL}/experienced-barber-working-with-vintage-tools-and-.png`}
               alt="Master Barber"
               className="w-full h-[600px] object-cover rounded-lg"
             />

@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite"
 import path from "path"
 
 export default defineConfig({
+  base: "/barberia-frontend/",   // 👈 nombre EXACTO del repo en GitHub
+  build: { outDir: "docs" },     // 👈 carpeta que publicará GitHub Pages
   plugins: [react(), tailwindcss()],
   resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
 })

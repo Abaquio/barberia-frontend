@@ -7,6 +7,10 @@ export default function InstagramFeed() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const carouselRef = useRef(null)
 
+  // helper para resolver imágenes respetando BASE_URL (Vite/GitHub Pages)
+  const img = (src) =>
+    typeof src === "string" ? (src.startsWith("/") ? `${import.meta.env.BASE_URL}${src.slice(1)}` : src) : src
+
   // Posts de muestra para el feed de Instagram
   const instagramPosts = [
     {
@@ -117,12 +121,12 @@ export default function InstagramFeed() {
                 transform: `translateX(-${currentIndex * (100 / 3)}%)`,
               }}
             >
-              {instagramPosts.map((post, index) => (
+              {instagramPosts.map((post) => (
                 <div key={post.id} className="w-1/3 flex-shrink-0 px-3">
                   <Card className="group cursor-pointer overflow-hidden bg-card border-border hover:border-accent/50 transition-all duration-300 hover:scale-105">
                     <div className="relative overflow-hidden">
                       <img
-                        src={post.image || "/placeholder.svg"}
+                        src={img(post.image) || `${import.meta.env.BASE_URL}placeholder.svg`}
                         alt={`Instagram post ${post.id}`}
                         className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                       />
